@@ -1,32 +1,36 @@
-<!-- polls/templates/polls/about.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
-    <nav>
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'contact' %}">Contact</a>
-        <a href="{% url 'register' %}">Register</a>
-        <a href="{% url 'login' %}">Login</a>
-     </nav>
-    <h1>About The People</h1>
-    <p>We are a community dedicated to sharing stories.</p>
-</body>
-</html>
 {% extends 'polls/base.html' %}
 
-{% block title %}About{% endblock %}
+{% block title %}About | The People Solution{% endblock %}
 
 {% block content %}
-    <h2>About Us</h2>
-    <p>The People Project is dedicated to connecting people and empowering communities.</p>
+    <header>
+        <div class="container">
+            <h1>The People Solution</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="{% url 'about' %}"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="{% url 'contact' %}"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="{% url 'register' %}"><i class="fas fa-user-plus"></i> Register</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <h2>About Us</h2>
+            <p>The People Project is dedicated to connecting people and empowering communities.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The People Solution. All rights reserved.</p>
+        </div>
+    </footer>
 {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}

@@ -3,10 +3,13 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from django.core.mail import send_mail
 # from django.http import HttpResponse
 
 def home(request):
     return render (request, "polls/home.html")
+def landing_page(request):
+    return render (request, "polls/landing.html")
 
 def about(request):
     return render(request , "polls/about.html")
@@ -20,12 +23,13 @@ def register(request):
         if form.is_valid():
             form.save()
             messages.success(request, "Welcome account created sucessfully")
-            return redirect('login')
+            return redirect('home')
         else:
             messages.error(request, 'sorry there was an error in registration.')
     else:
         form = UserCreationForm()
     return render(request, 'polls/register.html', {'form':form})
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -44,4 +48,28 @@ def user_login(request):
     else:
         form = AuthenticationForm()  # Use the AuthenticationForm for login
         return render(request, 'polls/login.html', {'form': form})
+
+
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        
+        try:
+            send_mail(
+                f"Message from {name}",
+                message,
+                email,
+                ['your_email@example.com'],  # Replace with your email
+            )
+            messages.success(request, "Your message has been sent!")
+        except Exception:
+            messages.error(request, "Failed to send the message. Please try again.")
+        return redirect('contact')
+    return render(request, 'polls/contact.html')
+
+
 

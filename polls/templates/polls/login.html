@@ -9,7 +9,7 @@
 
     <h2>Login</h2>
 
-    <!-- Display any error messages -->
+   
     {% if messages %}
         <ul>
             {% for message in messages %}
@@ -18,14 +18,16 @@
         </ul>
     {% endif %}
 
-    <!-- Login Form -->
+    
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}  <!-- Render form fields as paragraph elements -->
+        {{ form.as_p }} 
         <a href="{% url 'register' %}">new? create account</a>
         
         <button type="submit">Login</button>
     </form>
 
 </body>
-</html>
+</html> 
+
+

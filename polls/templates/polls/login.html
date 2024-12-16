@@ -3,31 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login | The People Solution</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white text-center">
+                        <h4>Login</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <!-- Username Field -->
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                {{ form.username }}
+                            </div>
+                            <!-- Password Field -->
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                {{ form.password }}
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                        </form>
+                        <p class="text-center mt-3">
+                            Don't have an account? 
+                            <a href="{% url 'register' %}">Register here</a>.
+                        </p>
+                        <p class="text-center">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h2>Login</h2>
-
-   
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }} 
-        <a href="{% url 'register' %}">new? create account</a>
-        
-        <button type="submit">Login</button>
-    </form>
-
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html> 
-
-
+</html>

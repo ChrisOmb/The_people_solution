@@ -1,6 +1,6 @@
-# The_people_project
-This is a simple Django application for creating and managing polls, where users can view polls, vote on them, and see the results.
-This project demonstrates the basic functionality of Django views, models, and templates.
+# The People Project
+
+**The People Project** is a simple Django application for creating and managing polls. Users can view polls, vote on them, and see the results. This project demonstrates the basic functionality of Django views, models, and templates.
 
 ## Features
 
@@ -17,7 +17,33 @@ This project demonstrates the basic functionality of Django views, models, and t
 
 ## Installation
 
-### 1. Clone the repository
-```bash
-git clone <repository_url>
-cd <project_directory>
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/yourusername/the_people_project.git
+   cd the_people_project
+
+ 2. Create a virtual environment
+  
+        python -m venv env
+        source env/bin/activate  # On Windows: env\Scripts\activate
+
+3.Install the required packages:
+
+       pip install -r requirements.txt
+
+4.Apply migrations:
+      
+      python manage.py migrate
+
+5.Create a superuser (to access the Django admin interface):
+    
+       python manage.py createsuperuser
+
+6.Run the development server:
+
+       python manage.py runserver
+
+
+
+

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
 :root {
-    --primary-dark: #1B4332;
+    --primary-dark: #28a745;
     --primary: #2D6A4F;
     --secondary: #40916C;
     --accent: #52B788;
@@ -126,6 +126,7 @@ html, body {
     border-top: 4px solid var(--accent);
     text-align: center;
     transition: transform 0.3s ease;
+    background-color: #061f0bec;
 }
 
 .features .row {
@@ -181,9 +182,9 @@ footer .footer-links a:hover {
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
-                            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#testimonials">Stories</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
                         </ul>
                     </div>
                 </div>
@@ -236,19 +237,19 @@ footer .footer-links a:hover {
                 <div class="col-md-4">
                     <div class="testimonial-box p-4 border rounded shadow-sm">
                         <p class="lead">"This platform has completely transformed the way I connect with my community. Highly recommended!"</p>
-                        <h5 class="mt-4">- Jane Doe</h5>
+                        <h5 class="mt-4">- Jessy M</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-box p-4 border rounded shadow-sm">
                         <p class="lead">"Engaging, informative, and empowering. A must-join for anyone who wants to make a difference."</p>
-                        <h5 class="mt-4">- John Smith</h5>
+                        <h5 class="mt-4">- Samson </h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-box p-4 border rounded shadow-sm">
                         <p class="lead">"I love how easy it is to share my thoughts and participate in meaningful discussions."</p>
-                        <h5 class="mt-4">- Mary Johnson</h5>
+                        <h5 class="mt-4">- Mary Maina</h5>
                     </div>
                 </div>
             </div>
@@ -274,8 +275,8 @@ footer .footer-links a:hover {
                     <h5 class="mb-4">Quick Links</h5>
                     <ul class="list-unstyled footer-links">
                         <li class="mb-2"><a href="#features" class="text-decoration-none text-light">Features</a></li>
-                        <li class="mb-2"><a href="#testimonials" class="text-decoration-none text-light">Stories</a></li>
-                        <li class="mb-2"><a href="#contact" class="text-decoration-none text-light">Contact</a></li>
+                        <li class="mb-2"><a href="contact" class="text-decoration-none text-light">Contact</a></li>
+                        <li class="mb-2"><a href="about" class="text-decoration-none text-light">About us</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -285,7 +286,7 @@ footer .footer-links a:hover {
                         <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="btn btn-outline-light rounded-circle"><i class="fab fa-instagram"></i></a>
                     </div>
-                    <p><i class="fas fa-phone me-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-phone me-2"></i> +254 720487634</p>
                     <p><i class="fas fa-envelope me-2"></i> contact@peoplevoices.com</p>
                 </div>
             </div>

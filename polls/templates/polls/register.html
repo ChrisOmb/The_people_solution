@@ -20,22 +20,22 @@
                             {% csrf_token %}
                             <!-- Username Field -->
                             <div class="form-group">
-                                <label for="username">Username</label>
+                                <label for="id_username">Username</label>
                                 {{ form.username }}
                             </div>
                             <!-- Email Field -->
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="id_email">Email</label>
                                 {{ form.email }}
                             </div>
                             <!-- Password Field -->
                             <div class="form-group">
-                                <label for="password">Password</label>
-                                {{ form.password }}
+                                <label for="id_password1">Password</label>
+                                {{ form.password1 }}
                             </div>
                             <!-- Confirm Password Field -->
                             <div class="form-group">
-                                <label for="password2">Confirm Password</label>
+                                <label for="id_password2">Confirm Password</label>
                                 {{ form.password2 }}
                             </div>
                             <!-- Submit Button -->
@@ -44,6 +44,9 @@
                         <p class="text-center mt-3">
                             Already have an account? 
                             <a href="{% url 'login' %}">Login here</a>.
+                        </p>
+                    </div>
+  
                         </p>
                     </div>
                 </div>

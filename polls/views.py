@@ -4,6 +4,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from django.core.mail import send_mail
+from .forms import QuestionForm, ChoiceFormSet
+from django.contrib.auth.decorators import login_required
+
+
 # from django.http import HttpResponse
 
 def home(request):
@@ -70,6 +74,28 @@ def contact(request):
             messages.error(request, "Failed to send the message. Please try again.")
         return redirect('contact')
     return render(request, 'polls/contact.html')
+
+
+
+@login_required
+def create_poll(request):
+    if request.method == 'POST':
+        question_form = QuestionForm(request.POST)
+        choice_formset = ChoiceFormSet(request.POST)
+        if question_form.is_valid() and choice_formset.is_valid():
+            question = question_form.save()
+            choices = choice_formset.save(commit=False)
+            for choice in choices:
+                choice.question = question
+                choice.save()
+            return redirect('polls:poll_list')  # Redirect to the list of polls
+    else:
+        question_form = QuestionForm()
+        choice_formset = ChoiceFormSet()
+    return render(request, 'polls/create_poll.html', {
+        'question_form': question_form,
+        'choice_formset': choice_formset,
+    })
 
 
 

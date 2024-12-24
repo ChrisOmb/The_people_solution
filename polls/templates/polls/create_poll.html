@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a New Poll</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Create a New Poll</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_question_text">Question:</label>
+                {{ question_form.question_text }}
+            </div>
+            <div class="form-group">
+                <label for="id_pub_date">Publication Date:</label>
+                {{ question_form.pub_date }}
+            </div>
+            <h3>Choices</h3>
+            {{ choice_formset.management_form }}
+            {% for form in choice_formset %}
+                <div class="form-group">
+                    {{ form.choice_text.label_tag }} {{ form.choice_text }}
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Create Poll</button>
+        </form>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

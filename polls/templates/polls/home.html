@@ -3,307 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The People Solution</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="description" content="The People Voices - Empowering communities through civic engagement.">
+    <title>The People Voices - Community Engagement Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        p {
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
+        /* Custom CSS for colors, layouts, and interactive sections */
+        :root {
+            --primary-dark: #28a745;
+            --primary: #2D6A4F;
+            --secondary: #40916C;
+            --accent: #52B788;
+            --light: #D8F3DC;
+            --white: #FFFFFF;
         }
 
-        /* Navbar Styles */
-        .navbar {
-            background-color: #28a745;
-            padding: 1rem;
-        }
-        .navbar h1 {
-            color: white;
-            margin: 0;
-        }
-        .navbar nav ul {
-            list-style: none;
-            padding: 0;
+        html, body {
+            height: 100%;
             margin: 0;
             display: flex;
-            justify-content: flex-end;
+            flex-direction: column;
         }
-        .navbar nav ul li {
-            margin-left: 1rem;
+
+        .wrapper {
+            flex: 1;
         }
-        .navbar nav ul li a {
-            color: white;
-            font-weight: bold;
+
+        /* Hero section */
+        .hero {
+            min-height: 40vh;
+            background: linear-gradient(rgba(29, 67, 50, 0.8), rgba(45, 106, 79, 0.9)), url('https://source.unsplash.com/1600x900/?community') center/cover no-repeat;
             display: flex;
             align-items: center;
-        }
-        .navbar nav ul li a i {
-            margin-right: 0.5rem;
+            color: var(--white);
         }
 
-        /* Main Content Styles */
-        .container {
-            padding: 2rem;
-        }
-        .container h2 {
-            color: #28a745;
-        }
-        .container p {
-            color: #6c757d;
-        }
-        .btn-get-started {
-            background-color: #28a745;
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.25rem;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-        .btn-get-started:hover {
-            background-color: #218838;
-        }
-
-        /* Features Section Styles */
-        .features {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-        .feature {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 0.25rem;
-            padding: 1rem;
-            text-align: center;
-            width: 30%;
-        }
-        .feature i {
+        .hero h1 {
             font-size: 3rem;
-            color: #28a745;
-            margin-bottom: 1rem;
-        }
-        .feature h5 {
-            color: #28a745;
-        }
-        .feature p {
-            color: #6c757d;
         }
 
-        /* Footer Styles */
+        /* Polls Section */
+        .poll-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+
+        .poll-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Feedback Section */
+        .feedback-section {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0;
+        }
+
+        .suggestion-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        /* News Section */
+        .news-section {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4rem 0;
+        }
+
+        /* Events Section */
+        .events-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+
+        .event-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+
         .footer {
-            background-color: #343a40;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 3rem 0;
         }
-        .footer p {
-            margin: 0;
-        }
-        .footer .social-icons a {
-            color: white;
-            margin: 0 0.5rem;
+
+        footer .social-links a {
+            color: var(--white);
             font-size: 1.5rem;
         }
-        .footer .social-icons a:hover {
-            color: #28a745;
+
+        footer .social-links a:hover {
+            color: var(--accent);
         }
+
+        footer .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        footer .footer-links a:hover {
+            color: var(--accent);
+        }
+
     </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
-    <!-- Navbar -->
-    <header class="navbar">
-        <div class="container">
-            <h1>The People Solution</h1>
-            <nav>
-                <ul>
-                    <li><a href="about"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li><a href="contact"><i class="fas fa-envelope"></i> Contact</a></li>
-                    <li><a href="login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                </ul>
+    <div class="wrapper">
+        <!-- Navigation bar -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
+                <div class="container">
+                    <a class="navbar-brand" href="#">The People Voices</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact us</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
-        </div>
-    </header>
+        </header>
 
-    <!-- Main Content -->
-    <main>
-        <div class="container">
-            <h2>Welcome, {{user}} </h2>
-            <p>Explore the features below and engage with the community:</p>
-            <button class="Register">Get Started</button>
-        </div>
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container text-center" data-aos="fade-up">
+                    <h1 class="display-2 mb-4">Your Voice Matters</h1>
+                    <p class="lead mb-4">Join our community and make a difference</p>
+                </div>
+            </section>
 
-        <!-- Features Section -->
-        <section class="features">
-            <div class="feature">
-                <i class="fas fa-poll"></i>
-                <h5>Polls</h5>
-                <p>Participate in polls and share your opinion with others.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-lightbulb"></i>
-                <h5>Suggestions</h5>
-                <p>View and contribute suggestions from the community.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-users"></i>
-                <h5>Community</h5>
-                <p>Engage with the community and share your ideas.</p>
-            </div>
-        </section>
-    </main>
+            <!-- Polls Section -->
+            <section id="polls" class="poll-section">
+                <div class="container text-center">
+                    <h2 class="mb-4">Community Polls</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="poll-card">
+                                <h4>What issue should we tackle next?</h4>
+                                <form>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="poll" id="poll1" value="Option1">
+                                        <label class="form-check-label" for="poll1">Environment</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="poll" id="poll2" value="Option2">
+                                        <label class="form-check-label" for="poll2">Healthcare</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="poll" id="poll3" value="Option3">
+                                        <label class="form-check-label" for="poll3">Education</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Vote</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <!-- Footer -->
-  <footer
-  class="text-center text-lg-start text-white"
-  style="background-color: #1c2331"
-  >
+            <!-- Feedback Section -->
+            <section id="feedback" class="feedback-section">
+                <div class="container text-center">
+                    <h2 class="mb-4">Give Us Your Feedback</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="suggestion-box">
+                                <h4>Your Suggestions</h4>
+                                <form>
+                                    <textarea class="form-control mb-3" rows="5" placeholder="Share your thoughts here..."></textarea>
+                                    <button type="submit" class="btn btn-light">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news" class="news-section">
+                <div class="container">
+                    <h2 class="text-center mb-4">Latest News</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Community Cleanup Drive</h5>
+                                <p>Join us this weekend for a community-wide cleanup event.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Healthcare Forum</h5>
+                                <p>We are hosting a forum on healthcare issues in our community.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Town Hall Meeting</h5>
+                                <p>Join the next town hall to discuss local issues with government officials.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Events Section -->
+            <section id="events" class="events-section">
+                <div class="container text-center">
+                    <h2 class="mb-4">Upcoming Events</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Fundraising for Education</h5>
+                                <p>Help us raise funds for the local school's new project.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Community Fair</h5>
+                                <p>Join us for a fun-filled day of activities and community bonding.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="event-card">
+                                <h5>Climate Action Rally</h5>
+                                <p>Be part of a global movement for climate justice.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+     <!-- Footer -->
+     <footer
+     class="text-center text-lg-start text-white"
+     style="background-color: #1c2331"
+     >
 <!-- Section: Social media -->
 <section
-     class="d-flex justify-content-between p-4"
-     style="background-color: #2D6A4F"
-     >
-<!-- Left -->
-<div class="me-5">
-<span>Get connected with us on social networks:</span>
-</div>
-<!-- Left -->
+        class="d-flex justify-content-between p-4"
+        style="background-color: #2D6A4F"
+        >
+ <!-- Left -->
+ <div class="me-5">
+   <span>Get connected with us on social networks:</span>
+ </div>
+ <!-- Left -->
 
-<!-- Right -->
-<div>
-<a href="" class="text-white me-4">
-  <i class="fab fa-facebook-f"></i>
-</a>
-<a href="" class="text-white me-4">
-  <i class="fab fa-twitter"></i>
-</a>
-<a href="" class="text-white me-4">
-  <i class="fab fa-google"></i>
-</a>
-<a href="" class="text-white me-4">
-  <i class="fab fa-instagram"></i>
-</a>
-<a href="" class="text-white me-4">
-  <i class="fab fa-linkedin"></i>
-</a>
-<a href="" class="text-white me-4">
-  <i class="fab fa-github"></i>
-</a>
-</div>
-<!-- Right -->
+ <!-- Right -->
+ <div>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-facebook-f"></i>
+   </a>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-twitter"></i>
+   </a>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-google"></i>
+   </a>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-instagram"></i>
+   </a>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-linkedin"></i>
+   </a>
+   <a href="" class="text-white me-4">
+     <i class="fab fa-github"></i>
+   </a>
+ </div>
+ <!-- Right -->
 </section>
 <!-- Section: Social media -->
 
 <!-- Section: Links  -->
 <section class="">
-<div class="container text-center text-md-start mt-5">
-<!-- Grid row -->
-<div class="row mt-3">
-  <!-- Grid column -->
-  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-    <!-- Content -->
-    <h6 class="text-uppercase fw-bold">WHO ARE WE</h6>
-    <hr
-        class="mb-4 mt-0 d-inline-block mx-auto"
-        style="width: 60px; background-color: #2D6A4F; height: 2px"
-        />
-    <p>
-     We are a community engagement platform that empowers citizens to participate in civic activities and make a difference in their communities.
-    </p>
-  </div>
-  <!-- Grid column -->
+ <div class="container text-center text-md-start mt-5">
+   <!-- Grid row -->
+   <div class="row mt-3">
+     <!-- Grid column -->
+     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+       <!-- Content -->
+       <h6 class="text-uppercase fw-bold">WHO ARE WE</h6>
+       <hr
+           class="mb-4 mt-0 d-inline-block mx-auto"
+           style="width: 60px; background-color: #2D6A4F; height: 2px"
+           />
+       <p>
+        We are a community engagement platform that empowers citizens to participate in civic activities and make a difference in their communities.
+       </p>
+     </div>
+     <!-- Grid column -->
 
-  <!-- Grid column -->
-  <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-    <!-- Links -->
-    <h6 class="text-uppercase fw-bold">We Promote</h6>
-    <hr
-        class="mb-4 mt-0 d-inline-block mx-auto"
-        style="width: 60px; background-color: #2D6A4F; height: 2px"
-        />
-    <p>
-      <a href="#!" class="text-white"> Communication</a>
-    </p>
-    <p>
-      <a href="#!" class="text-white"> Teamwork</a>
-    </p>
-    <p>
-      <a href="#!" class="text-white"> Communial service</a>
-    </p>
+     <!-- Grid column -->
+     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+       <!-- Links -->
+       <h6 class="text-uppercase fw-bold">We Promote</h6>
+       <hr
+           class="mb-4 mt-0 d-inline-block mx-auto"
+           style="width: 60px; background-color: #2D6A4F; height: 2px"
+           />
+       <p>
+         <a href="#!" class="text-white"> Communication</a>
+       </p>
+       <p>
+         <a href="#!" class="text-white"> Teamwork</a>
+       </p>
+       <p>
+         <a href="#!" class="text-white"> Communial service</a>
+       </p>
+ 
+     </div>
+     <!-- Grid column -->
 
-  </div>
-  <!-- Grid column -->
+     <!-- Grid column -->
+     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+       <!-- Links -->
+       <h6 class="text-uppercase fw-bold">Useful links</h6>
+       <hr
+           class="mb-4 mt-0 d-inline-block mx-auto"
+           style="width: 60px; background-color: #2D6A4F; height: 2px"
+           />
+       <p>
+         <a href="#!" class="text-white">About</a>
+       </p>
+       <p>
+         <a href="#!" class="text-white">Join us </a>
+       </p>
+       <p>
+         <a href="#!" class="text-white">Contact us</a>
+       </p>
+     </div>
+     <!-- Grid column -->
 
-  <!-- Grid column -->
-  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-    <!-- Links -->
-    <h6 class="text-uppercase fw-bold">Useful links</h6>
-    <hr
-        class="mb-4 mt-0 d-inline-block mx-auto"
-        style="width: 60px; background-color: #2D6A4F; height: 2px"
-        />
-    <p>
-      <a href="#!" class="text-white">About</a>
-    </p>
-    <p>
-      <a href="#!" class="text-white">Join us </a>
-    </p>
-    <p>
-      <a href="#!" class="text-white">Contact us</a>
-    </p>
-  </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-    <!-- Links -->
-    <h6 class="text-uppercase fw-bold">Contact</h6>
-    <hr
-        class="mb-4 mt-0 d-inline-block mx-auto"
-        style="width: 60px; background-color: #2D6A4F; height: 2px"
-        />
-    <p><i class="fas fa-home mr-3"></i> Nairobi-Kenya </p>
-    <p><i class="fas fa-envelope mr-3"></i> info@thepeople.co.ke</p>
-    <p><i class="fas fa-phone mr-3"></i> +2547 20120012</p>
-    
-  </div>
-  <!-- Grid column -->
-</div>
-<!-- Grid row -->
-</div>
+     <!-- Grid column -->
+     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+       <!-- Links -->
+       <h6 class="text-uppercase fw-bold">Contact</h6>
+       <hr
+           class="mb-4 mt-0 d-inline-block mx-auto"
+           style="width: 60px; background-color: #2D6A4F; height: 2px"
+           />
+       <p><i class="fas fa-home mr-3"></i> Nairobi-Kenya </p>
+       <p><i class="fas fa-envelope mr-3"></i> info@thepeople.co.ke</p>
+       <p><i class="fas fa-phone mr-3"></i> +2547 20120012</p>
+       
+     </div>
+     <!-- Grid column -->
+   </div>
+   <!-- Grid row -->
+ </div>
 </section>
 <!-- Section: Links  -->
 
 <!-- Copyright -->
 <div
- class="text-center p-3"
- style="background-color: 2D6A4F"
- >
-© 2024 Copyright: The People solution</a
->
+    class="text-center p-3"
+    style="background-color: 2D6A4F"
+    >
+ © 2024 Copyright: The People solution</a
+   >
 </div>
 <!-- Copyright -->
 </footer>
 <!-- Footer -->
+
+</div>
+<!-- End of .container -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
